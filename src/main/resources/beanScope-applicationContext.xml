@@ -7,20 +7,16 @@
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:sport.properties"/>
+
 
     <!-- Define your beans here -->
     <bean id="myFortuneService" class="sk.itsovy.damianmatysko.HappyFortuneService"/>
 
-    <bean id="myCoach" class="sk.itsovy.damianmatysko.TrackCoach">
+    <bean id="myCoach" class="sk.itsovy.damianmatysko.TrackCoach" scope="prototype">
         <constructor-arg ref="myFortuneService"/>
     </bean>
 
-    <bean id="myCricketCoach" class="sk.itsovy.damianmatysko.CricetCoach">
-        <property name="fortuneService" ref="myFortuneService"/>
-        <property name="emailAdress" value="${foo.email}"/>
-        <property name="team" value="${foo.team}"/>
-    </bean>
+
 </beans>
 
 
